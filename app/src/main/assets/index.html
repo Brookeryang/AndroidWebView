@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Android WebView 与 Javascript 交互</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+</head>
+
+<body>
+<p>测试Android WebView 与 Javascript 交互</p>
+<div>
+    <input id="name_input" class="inputStyle" type="text"/>
+
+    <button id="input" onclick="sendInfoToJava()">js调用</button>
+</div>
+
+<script>
+		function sendInfoToJava(){
+			//调用android程序中的方法，并传递参数
+    var name = document.getElementById("name_input").value;
+    window.AndroidWebView.showInfoFromJs(name);
+		}
+
+ //在android代码中调用此方法
+  function showInfoFromJava(msg){
+    alert("来自客户端的信息："+msg);
+  }
+</script>
+</body>
+</html>
